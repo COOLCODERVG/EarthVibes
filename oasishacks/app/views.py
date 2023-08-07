@@ -68,7 +68,7 @@ def Event(request, *args, **kwargs):
         m = EventModel(name = ename, author= request.user.username, date = date, zipcode = zip, city = city, address = add, description = edesc)
         m.save()
         print(m)
-        return redirect('/events')
+        return redirect('/events/')
     if request.method == 'GET':
         
         entries = EventModel.objects.all()
