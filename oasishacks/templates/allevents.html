@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Oppurtunities</h1>
+{% for i in entries %}
+<div class = "types-col" ><!--column 1 talks about cyberbullying -->
+    <h3>{{ i.name }}</h3>
+    <p>Presented By: {{ i.author }}</p>
+    <p>{{ i.description }}</p>
+    <p>{{ i.date }}</p>
+    <p>{{ i.address }}</p>
+    <button class = "button" onclick = "alert('Registered for this event.');
+    ">Register</button>
+</div>
+{% endfor %}
+{% endblock %}
+{% block style %}
+<style>
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+}
+    *{ /* Sets the general styling for the whole website */
+                margin:0;
+                padding: 0;
+                font-family: sans-serif;
+    }
+    h1{
+        color: white;
+        font-size: 70px;
+        margin-top: 80px;
+        text-align: center;
+    }
+
+    .types-col{
+        flex-basis:31%;
+        background: #aa1010;
+        border-radius: 10px;
+        margin-bottom: 5%;  
+        padding: 20px 12px;
+        box-sizing:border-box;
+        transition: 0.5s;
+    }
+    .types{
+            width: 80%;
+                margin: auto;
+                text-align: center;
+                padding-top: 100px;
+            }
+            
+            
+            .types h1{
+                font-size: 36px;
+                font-weight: 600;
+            }
+
+            .types p{
+                color: #777;
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 22px;
+                padding: 10px;
+            }
+            .row{
+                margin-top: 5%;
+                display: flex;
+                justify-content:space-between;
+            }
+
+    .types-col:hover{
+        box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+    }
+
+    .body{
+        background-image: url('.tree.jpg');
+    }
+</style>   
+{% endblock %}

@@ -1,0 +1,184 @@
+<html>
+    {% load static %}
+    <head>{%  block style %}
+        <style>
+            
+            *{ /* Sets the general styling for the whole website */
+                margin:0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+        </style>{%endblock%}
+        <style>
+            .banner{/* Sets the styling for the banner section of the website*/
+                width: 100%;
+                height: 100%;
+                background-color: #16b90e;
+                /* Sets the background image of the banner*/
+                background-size: cover;
+                background-position: center;
+            } 
+            
+            
+            /* Start of Styling of the navigation bar and all items in side of navigation bar */
+            .logo{/* Sets the styling of the logo in the website */
+                width: 120px;
+                cursor: pointer;
+            }
+            .navbar{/* Sets the styling of the navigation bar of the website */
+                width: 85%;
+                margin:auto;
+                padding: 35px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            /* Sets the styling of the items in the navigation bar of the website */
+            .navbar ul li{
+                text-align: right;
+                list-style-position: inside;
+                list-style: none;
+                display: inline-block;
+                margin: 0 20px;
+                position: relative;
+            }
+
+            .navbar ul li a{
+                text-align: right;
+                list-style-position: inside;
+                text-decoration: none;
+                color: #fff;
+                text-transform: uppercase;                
+            }
+
+            .navbar ul li::after{
+                content: '';
+                height: 3px;
+                width: 0%;
+                background: #009688;
+                position: absolute;
+                left:0;
+                bottom:-10px;
+                transition: 0.5s;
+            }
+            .navbar ul li:hover::after{
+                width: 100%;
+            }
+            /* End of styling of navigation bar */
+
+            .content{/* Sets the styling of the navigation bar of the website */
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                text-align: center;
+                color: #fff;   
+            }
+        </style>
+        {% block style2 %}
+        <style>
+            .content h1{/* Sets the styling of the h1 tags in the content section of the banner */
+                font-size: 70px;
+                margin-top: 80px;
+            }
+
+            .content p{/* Sets the styling of the p tags in the content section of the banner */
+                margin: 20px auto;
+                font-weight: 100;
+                line-height: 25px;
+                
+            }
+            .types{
+                width: 80%;
+                margin: auto;
+                text-align: center;
+                padding-top: 100px;
+            }
+            
+            
+            .types h1{
+                font-size: 36px;
+                font-weight: 600;
+            }
+
+            .types p{
+                color: #777;
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 22px;
+                padding: 10px;
+            }
+            .row{
+                margin-top: 5%;
+                display: flex;
+                justify-content:space-between;
+            }
+            .types-col{
+                flex-basis:31%;
+                background: #fff3f3;
+                border-radius: 10px;
+                margin-bottom: 5%;
+                padding: 20px 12px;
+                box-sizing:border-box;
+                transition: 0.5s;
+            }
+
+            .types h3{
+                text-align: center;
+                font-weight: 600;
+                margin: 10px 0;
+            }
+
+            .types-col:hover{
+                box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+            }
+            
+        
+        </style>{%endblock%}
+        <title>Earth Vibes</title>
+    </head>
+    <body>
+        <div class = 'banner'>
+            <div class = 'navbar'>
+                <ul>
+                    <li><img src="pic_trulli.jpg" ></li>
+                    <li><a href = "/">Home</a></li><!--Sets the link of the Home navigation bar item -->
+                    <li><a href = "/team/">Our Team</a></li><!--Sets the link of the Our Team navigation bar item -->
+                    {% if aut %}
+                        <li><a href = "/logout/">Log Out</a></li>
+                        <li><a href = "/events/">Events</a></li>
+                    {% else %}
+                        <li><a href = "/login/">Log In</a></li>
+                        <li><a href = "/signup/">Sign Up</a></li>
+                        
+                    {% endif %}
+                    <li style = "margin-right: 100px;"><a href = "#">User: {{ uname }}</a></li>
+                </ul>
+            </div>
+            {% block content %}
+            <div class = 'content'>
+                
+                <h1>Earth Vibes</h1><!--Header of the page and visual title -->
+                <p>Earth Vibes is an app that helps provide people with opportunities that will help the Earth.</p><!--Subtitle of the website -->
+            </div>
+        </div>
+        
+        <section class = "types"><!--section where the differnt types of risks are -->
+            <div class = "row">
+                <div class = "types-col" ><!--column 1 talks about cyberbullying -->
+                    <h3>Problems we aim to fix</h3>
+                    <p>We aim to try and provide opportunites for voluenteers to help make the earth a better place for everyone.</p>
+                </div>
+                <div class = "types-col" ><!--column 2 talks about Identity Theft -->
+                    <h3>How voluenteers play a role</h3>
+                    <p>volunteers play a key role in habitat restoration, species monitoring, leading tours, education and cultural programs, and more. Volunteers also provide support in our offices and lend their expertise on projects.</p>
+                </div>
+                <div class = "types-col" ><!--column 3 talks about Cyberbullying -->
+                    <h3>How you can play a role</h3>
+                    <p>Hosting your own events and volunteering opportunities and work to make a difference. </p>
+                </div>
+            </div>
+        </section>
+        {% endblock %}
+    </body>
+</html>  
